@@ -6,7 +6,7 @@ from tensorflow.examples.tutorials.mnist import input_data
 mnist = input_data.read_data_sets('../data', one_hot=True)
 
 # hyperparameters
-learning_rate = 0.001
+learning_rate = 0.003
 training_iterations = 200000
 batch_size = 128
 display_step = 10

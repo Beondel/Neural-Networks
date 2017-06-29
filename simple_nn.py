@@ -1,5 +1,5 @@
 import tensorflow as tf
-import input_data
+from tensorflow.examples.tutorials.mnist import input_data
 
 # variables
 X = tf.placeholder(tf.float32, [None, 28, 28, 1])
