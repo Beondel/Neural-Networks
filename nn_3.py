@@ -26,15 +26,9 @@ def deep_nn(input):
     output_layer = {'weights': tf.Variable(tf.random_normal([hl3_nodes, n_classes], mean=0.0, stddev=0.5)),
                     'biases': tf.Variable(tf.random_normal([n_classes], mean=0.0, stddev=0.5))}
 
-    l1 = tf.add(tf.matmul(input, hidden_layer_1['weights']), hidden_layer_1['biases'])
-    l1 = tf.nn.relu(l1)
-
-    l2 = tf.add(tf.matmul(l1, hidden_layer_2['weights']), hidden_layer_2['biases'])
-    l2 = tf.nn.relu(l2)
-
-    l3 = tf.add(tf.matmul(l2, hidden_layer_3['weights']), hidden_layer_3['biases'])
-    l3 = tf.nn.relu(l3)
-
+    l1 = tf.nn.relu_layer(input, hidden_layer_1['weights'], hidden_layer_1['biases'])
+    l2 = tf.nn.relu_layer(l1, hidden_layer_2['weights'], hidden_layer_2['biases'])
+    l3 = tf.nn.relu_layer(l2, hidden_layer_3['weights'], hidden_layer_3['biases'])
     return tf.add(tf.matmul(l3, output_layer['weights']), output_layer['biases'])
 
 
