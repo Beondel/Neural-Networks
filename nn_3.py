@@ -41,7 +41,7 @@ def deep_nn(input):
 def train(x):
     prediction = deep_nn(x)
     cost = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits=prediction, labels=y))
-    optimizer = tf.train.GradientDescentOptimizer(learning_rate=0.003).minimize(cost)
+    optimizer = tf.train.GradientDescentOptimizer(learning_rate=0.001).minimize(cost)
     n_epochs = 10
 
     with tf.Session() as sess:
